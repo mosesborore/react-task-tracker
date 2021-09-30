@@ -2,7 +2,7 @@
 
 -the application frontend it created using React and backend using flask
 -When it was developing it the backend was running in a Docker container.
--the backend can be found in my github page named [**task-tracker-api**](https://github.com/mosesborore/flask-api-in-docker)
+-the backend can be found in my github page named [**flask-api-in-docker**](https://github.com/mosesborore/flask-api-in-docker)
 
 ## What it can do
 
