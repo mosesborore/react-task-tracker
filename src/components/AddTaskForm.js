@@ -36,7 +36,7 @@ function AddTaskForm() {
       <div className="form-control">
         <label>Day & Time</label>
         <input
-          type="date"
+          type="datetime-local"
           className="form-control"
           placeholder="Day & Time"
           value={day}
