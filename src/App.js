@@ -6,6 +6,8 @@ import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
   const defaultUrl = "http://127.0.0.1:5000/tasks";
+  const APICALLDELAYDURATION = 1500;
+
   const [tasks, setTasks] = useState([]);
 
   const [isPending, setIsPending] = useState(true);
@@ -14,12 +16,8 @@ function App() {
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
 
   useEffect(() => {
-    fetchTasks();
-  }, [tasks]);
-
-  // fetch tasks
-  const fetchTasks = () => {
-    setTimeout(() => {
+    let timeOut = setTimeout(() => {
+      // fetch all tasks
       fetch(defaultUrl)
         .then((res) => {
           if (!res.ok) {
@@ -36,8 +34,10 @@ function App() {
           setIsPending(false);
           setError(err.message);
         });
-    }, 1500);
-  };
+    }, APICALLDELAYDURATION);
+    // clean up timeout
+    return () => clearInterval(timeOut);
+  }, [tasks]);
 
   // fetch a single task
   const fetchTask = async (id) => {
